@@ -2,8 +2,9 @@ import { Link } from "react-router-dom"
 import { motion } from "framer-motion"
 import PageHero from "../components/PageHero"
 import { services } from "../data/services"
+import { serviceImages } from "../data/constants"
 import SectionImage from "../components/SectionImage"
-import { serviceIllustrations } from "../components/Illustrations"
+import ServiceFAQ from "../components/ServiceFAQ"
 
 const stagger = {
   hidden: { opacity: 0 },
@@ -70,17 +71,16 @@ export default function Services() {
                     </svg>
                   </Link>
                 </div>
-                <div className={`${i % 2 === 1 ? "lg:order-1" : ""} aspect-[4/3] rounded-xl border border-border/50 bg-gradient-to-br from-surface-3/80 to-surface-2/80 flex items-center justify-center overflow-hidden p-8`}>
-                  {(() => {
-                    const Illus = serviceIllustrations[i]
-                    return <Illus className="w-full h-full max-w-[200px] max-h-[160px]" />
-                  })()}
+                <div className={`${i % 2 === 1 ? "lg:order-1" : ""} aspect-[4/3] rounded-xl overflow-hidden relative border border-border/50`}>
+                  <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${serviceImages[service.id]})` }} />
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </SectionImage>
+
+      <ServiceFAQ />
     </>
   )
 }

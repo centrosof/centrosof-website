@@ -254,6 +254,13 @@ export default function CaseStudyDetail() {
               <svg aria-hidden="true" className="w-7 h-7 text-accent/30 mb-4" viewBox="0 0 24 24" fill="currentColor">
                 <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
               </svg>
+              <div className="flex gap-1 mb-4">
+                {[1,2,3,4,5].map((s) => (
+                  <svg key={s} aria-hidden="true" className="w-4 h-4 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                    <path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.6l5.34-.78L10 1z" />
+                  </svg>
+                ))}
+              </div>
               <p className="text-text-muted/80 italic leading-relaxed text-lg">"{cs.testimonial.quote}"</p>
               <footer className="mt-4">
                 <p className="text-sm text-text font-medium">{cs.testimonial.author}</p>

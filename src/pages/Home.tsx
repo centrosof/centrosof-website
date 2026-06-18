@@ -11,8 +11,7 @@ import CertBadges from "../components/CertBadges"
 import ClientLogoBar from "../components/ClientLogoBar"
 import Newsletter from "../components/Newsletter"
 import { services, whatWeDontDo } from "../data/services"
-import { statsData } from "../data/constants"
-import { serviceIllustrations } from "../components/Illustrations"
+import { statsData, serviceImages } from "../data/constants"
 import { caseStudies } from "../data/caseStudies"
 
 const stagger = {
@@ -142,36 +141,36 @@ export default function Home() {
             viewport={{ once: true, margin: "-80px" }}
             className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-5"
           >
-            {services.slice(0, 3).map((service, i) => {
-              const Illus = serviceIllustrations[i]
-              return (
-                <motion.div key={service.id} variants={itemUp}>
-                  <Link
-                    to={`/services/${service.slug}`}
-                    className="group relative block h-full p-8 rounded-2xl border border-border bg-surface-2/80 overflow-hidden transition-all duration-500 hover:border-primary/30 hover:shadow-[0_0_40px_rgba(99,102,241,0.06)]"
-                  >
-                    <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
-                    <div className="relative">
-                      <div className="w-full h-20 mb-5 flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity duration-300">
-                        <Illus className="w-24 h-20" />
-                      </div>
-                      <h3 className="text-xl font-bold font-heading tracking-tight text-text group-hover:text-primary transition-colors duration-300">
-                        {service.title}
-                      </h3>
-                      <p className="mt-3 text-sm text-text-muted/80 leading-relaxed">
-                        {service.shortDesc}
-                      </p>
-                      <div className="mt-6 flex items-center gap-1.5 text-xs font-medium text-primary opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
-                        Learn more
-                        <svg aria-hidden="true" className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                          <path d="M5 12h14M13 5l7 7-7 7" />
-                        </svg>
-                      </div>
+            {services.slice(0, 3).map((service) => (
+              <motion.div key={service.id} variants={itemUp}>
+                <Link
+                  to={`/services/${service.slug}`}
+                  className="group relative block h-full rounded-2xl border border-border overflow-hidden transition-all duration-500 hover:border-primary/30 hover:shadow-[0_0_40px_rgba(99,102,241,0.06)]"
+                >
+                  <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${serviceImages[service.id]})` }} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-surface via-surface/90 to-surface/80" />
+                  <div className="absolute inset-0 bg-surface/40" />
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 transition-opacity duration-500 opacity-0 group-hover:opacity-100" />
+                  <div className="relative p-8 flex flex-col justify-end min-h-[280px]">
+                    <div className="w-10 h-10 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-accent font-bold text-lg font-heading mb-4">
+                      {service.title.charAt(0)}
                     </div>
-                  </Link>
-                </motion.div>
-              )
-            })}
+                    <h3 className="text-xl font-bold font-heading tracking-tight text-text group-hover:text-accent transition-colors duration-300">
+                      {service.title}
+                    </h3>
+                    <p className="mt-2 text-sm text-text-muted/90 leading-relaxed">
+                      {service.shortDesc}
+                    </p>
+                    <div className="mt-5 flex items-center gap-1.5 text-xs font-medium text-accent opacity-0 translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                      Learn more
+                      <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                        <path d="M5 12h14M13 5l7 7-7 7" />
+                      </svg>
+                    </div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </SectionImage>
@@ -291,6 +290,13 @@ export default function Home() {
                 <svg aria-hidden="true" className="w-6 h-6 text-accent/30 mb-4" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10H14.017zM0 21v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151C7.563 6.068 6 8.789 6 11h4v10H0z" />
                 </svg>
+                <div className="flex gap-1 mb-3">
+                  {[1,2,3,4,5].map((s) => (
+                    <svg key={s} aria-hidden="true" className="w-4 h-4 text-accent" viewBox="0 0 20 20" fill="currentColor">
+                      <path d="M10 1l2.39 4.84 5.34.78-3.87 3.77.91 5.32L10 13.27l-4.77 2.51.91-5.32L2.27 6.6l5.34-.78L10 1z" />
+                    </svg>
+                  ))}
+                </div>
                 <p className="text-text-muted/80 leading-relaxed italic">"{item.testimonial!.quote}"</p>
                 <div className="mt-6 pt-4 border-t border-border/40">
                   <p className="text-sm text-text font-medium">{item.testimonial!.author}</p>

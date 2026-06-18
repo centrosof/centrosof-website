@@ -31,6 +31,14 @@ export const statsData = [
   { value: 99.99, suffix: "%", label: "Uptime Guaranteed", decimals: 2 },
 ]
 
+export const serviceImages: Record<string, string> = {
+  "infrastructure-engineering": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&q=80",
+  "legacy-modernization": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&q=80",
+  "secure-architecture": "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&q=80",
+  "full-stack-product-engineering": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80",
+  "ai-digital-transformation": "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80",
+}
+
 export const aboutStatsData = [
   { value: 12, suffix: "+", label: "Years Engineering" },
   { value: 200, suffix: "+", label: "Systems Deployed" },
