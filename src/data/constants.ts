@@ -25,10 +25,10 @@ export const caseHeroImages: Record<string, string> = {
 }
 
 export const statsData = [
-  { value: 12, suffix: "+", label: "Years of Engineering Excellence" },
-  { value: 200, suffix: "+", label: "Production Systems Deployed" },
-  { value: 50, suffix: "M+", label: "Users Supported" },
-  { value: 99.99, suffix: "%", label: "Uptime Guaranteed", decimals: 2 },
+  { value: 14, suffix: "+", label: "Years of Engineering Excellence" },
+  { value: 180, suffix: "+", label: "Production Systems Deployed" },
+  { value: 35, suffix: "M+", label: "End Users Supported" },
+  { value: 99.97, suffix: "%", label: "Average Uptime Across All Systems", decimals: 2 },
 ]
 
 export const serviceImages: Record<string, string> = {
@@ -40,8 +40,8 @@ export const serviceImages: Record<string, string> = {
 }
 
 export const aboutStatsData = [
-  { value: 12, suffix: "+", label: "Years Engineering" },
-  { value: 200, suffix: "+", label: "Systems Deployed" },
-  { value: 50, suffix: "M+", label: "Users Supported" },
-  { value: 99.99, suffix: "%", label: "Uptime Avg", decimals: 2 },
+  { value: 14, suffix: "+", label: "Years Engineering" },
+  { value: 180, suffix: "+", label: "Systems Deployed" },
+  { value: 35, suffix: "M+", label: "Users Supported" },
+  { value: 99.97, suffix: "%", label: "Uptime Avg", decimals: 2 },
 ]
