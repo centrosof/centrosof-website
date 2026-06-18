@@ -77,26 +77,26 @@ export default function Home() {
             We map the fracture pattern — logical decay, database contention, architectural debt — then replace with clean, secure, infinitely scalable systems.
           </motion.p>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-12 flex flex-wrap justify-center gap-4"
-          >
-            <Link
-              to="/contact"
-              className="group inline-flex items-center gap-2 bg-accent text-white px-8 py-3.5 rounded-xl font-medium shadow-lg shadow-accent/20 transition-all duration-300 hover:bg-accent-hover hover:shadow-[0_0_32px_rgba(202,138,4,0.35)]"
-            >
-              Start a Project
-              <svg aria-hidden="true" className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M5 12h14M13 5l7 7-7 7" />
-              </svg>
-            </Link>
-            <Link
-              to="/case-studies"
-              className="group inline-flex items-center gap-2 border border-border-light text-text-muted px-8 py-3.5 rounded-xl font-medium transition-all duration-300 hover:border-accent/50 hover:text-accent hover:bg-accent-dim/30"
-            >
-              See Our Work
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="mt-12 flex flex-wrap justify-center gap-4"
+              >
+                <Link
+                  to="/contact"
+                  className="group inline-flex items-center gap-2 bg-accent text-white px-8 py-3.5 rounded-xl font-medium shadow-lg shadow-accent/20 transition-all duration-300 hover:bg-accent-hover hover:shadow-[0_0_32px_rgba(202,138,4,0.35)]"
+                >
+                  Book a Free Architecture Audit
+                  <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
+                </Link>
+                <Link
+                  to="/case-studies"
+                  className="group inline-flex items-center gap-2 border border-border-light text-text-muted px-8 py-3.5 rounded-xl font-medium transition-all duration-300 hover:border-accent/50 hover:text-accent hover:bg-accent-dim/30"
+                >
+                  See Our Work
               <svg aria-hidden="true" className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <path d="M5 12h14M13 5l7 7-7 7" />
               </svg>

@@ -160,37 +160,141 @@ export default function CaseStudyDetail() {
           >
             <p className="text-xs font-mono text-text-dim tracking-wider mb-6">Architecture Transition</p>
             <div className="flex items-center gap-4 md:gap-8 justify-center">
-              <div className="flex-1 text-center">
-                <div className="w-full aspect-[3/2] rounded-xl border border-red-500/20 bg-red-500/[0.03] flex flex-col items-center justify-center p-4 gap-2">
-                  <svg viewBox="0 0 60 60" className="w-10 h-10 opacity-40" fill="none">
-                    <rect x="5" y="5" width="50" height="50" rx="4" stroke="#ef4444" strokeWidth="1" />
-                    <rect x="15" y="15" width="30" height="5" rx="1" fill="#ef4444" opacity="0.2" />
-                    <rect x="15" y="25" width="30" height="5" rx="1" fill="#ef4444" opacity="0.15" />
-                    <rect x="15" y="35" width="30" height="5" rx="1" fill="#ef4444" opacity="0.1" />
-                    <rect x="15" y="45" width="30" height="5" rx="1" fill="#ef4444" opacity="0.08" />
-                  </svg>
-                  <span className="text-xs font-mono text-red-500/60">Legacy Monolith</span>
-                </div>
-              </div>
-              <div className="flex flex-col items-center gap-2">
-                <svg aria-hidden="true" className="w-6 h-6 text-accent/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M5 12h14M13 5l7 7-7 7" />
-                </svg>
-                <span className="text-[10px] font-mono text-accent/40">8 weeks</span>
-              </div>
-              <div className="flex-1 text-center">
-                <div className="w-full aspect-[3/2] rounded-xl border border-emerald-500/20 bg-emerald-500/[0.03] flex flex-col items-center justify-center p-4 gap-2">
-                  <svg viewBox="0 0 60 60" className="w-10 h-10 opacity-40" fill="none">
-                    <rect x="3" y="3" width="16" height="16" rx="3" stroke="#10b981" strokeWidth="1" />
-                    <rect x="25" y="3" width="16" height="16" rx="3" stroke="#10b981" strokeWidth="1" />
-                    <rect x="14" y="22" width="16" height="16" rx="3" stroke="#10b981" strokeWidth="1" />
-                    <rect x="36" y="22" width="16" height="16" rx="3" stroke="#10b981" strokeWidth="1" />
-                    <rect x="3" y="41" width="16" height="16" rx="3" stroke="#10b981" strokeWidth="1" />
-                    <rect x="25" y="41" width="16" height="16" rx="3" stroke="#10b981" strokeWidth="1" />
-                  </svg>
-                  <span className="text-xs font-mono text-emerald-500/60">Microservices</span>
-                </div>
-              </div>
+              {cs.id === "legacy-banking-migration" && (
+                <>
+                  <div className="flex-1 text-center">
+                    <div className="w-full aspect-[3/2] rounded-xl border border-red-500/20 bg-red-500/[0.03] flex flex-col items-center justify-center p-4 gap-2">
+                      <svg viewBox="0 0 60 60" className="w-10 h-10 opacity-40" fill="none">
+                        <rect x="5" y="5" width="50" height="50" rx="4" stroke="#ef4444" strokeWidth="1" />
+                        <rect x="15" y="15" width="30" height="5" rx="1" fill="#ef4444" opacity="0.2" />
+                        <rect x="15" y="25" width="30" height="5" rx="1" fill="#ef4444" opacity="0.15" />
+                        <rect x="15" y="35" width="30" height="5" rx="1" fill="#ef4444" opacity="0.1" />
+                      </svg>
+                      <span className="text-xs font-mono text-red-500/60">Legacy Monolith</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <svg aria-hidden="true" className="w-6 h-6 text-accent/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+                    <span className="text-[10px] font-mono text-accent/40">{cs.duration}</span>
+                  </div>
+                  <div className="flex-1 text-center">
+                    <div className="w-full aspect-[3/2] rounded-xl border border-emerald-500/20 bg-emerald-500/[0.03] flex flex-col items-center justify-center p-4 gap-2">
+                      <svg viewBox="0 0 60 60" className="w-10 h-10 opacity-40" fill="none">
+                        <rect x="3" y="3" width="16" height="16" rx="3" stroke="#10b981" strokeWidth="1" />
+                        <rect x="25" y="3" width="16" height="16" rx="3" stroke="#10b981" strokeWidth="1" />
+                        <rect x="14" y="22" width="16" height="16" rx="3" stroke="#10b981" strokeWidth="1" />
+                        <rect x="36" y="22" width="16" height="16" rx="3" stroke="#10b981" strokeWidth="1" />
+                        <rect x="3" y="41" width="16" height="16" rx="3" stroke="#10b981" strokeWidth="1" />
+                        <rect x="25" y="41" width="16" height="16" rx="3" stroke="#10b981" strokeWidth="1" />
+                      </svg>
+                      <span className="text-xs font-mono text-emerald-500/60">Microservices</span>
+                    </div>
+                  </div>
+                </>
+              )}
+              {cs.id === "ecommerce-platform-scale" && (
+                <>
+                  <div className="flex-1 text-center">
+                    <div className="w-full aspect-[3/2] rounded-xl border border-red-500/20 bg-red-500/[0.03] flex flex-col items-center justify-center p-4 gap-2">
+                      <svg viewBox="0 0 60 60" className="w-10 h-10 opacity-40" fill="none">
+                        <rect x="5" y="5" width="50" height="50" rx="4" stroke="#ef4444" strokeWidth="1" />
+                        <line x1="15" y1="20" x2="45" y2="20" stroke="#ef4444" strokeWidth="1" opacity="0.3" />
+                        <circle cx="30" cy="35" r="8" stroke="#ef4444" strokeWidth="1" opacity="0.2" fill="none" />
+                        <text x="30" y="38" textAnchor="middle" fill="#ef4444" fontSize="6" opacity="0.4" fontFamily="monospace">Rails</text>
+                      </svg>
+                      <span className="text-xs font-mono text-red-500/60">Monolithic Rails</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <svg aria-hidden="true" className="w-6 h-6 text-accent/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+                    <span className="text-[10px] font-mono text-accent/40">{cs.duration}</span>
+                  </div>
+                  <div className="flex-1 text-center">
+                    <div className="w-full aspect-[3/2] rounded-xl border border-emerald-500/20 bg-emerald-500/[0.03] flex flex-col items-center justify-center p-4 gap-2">
+                      <svg viewBox="0 0 60 60" className="w-10 h-10 opacity-40" fill="none">
+                        <circle cx="15" cy="15" r="8" stroke="#10b981" strokeWidth="1" fill="none" opacity="0.3" />
+                        <circle cx="45" cy="15" r="8" stroke="#10b981" strokeWidth="1" fill="none" opacity="0.3" />
+                        <circle cx="15" cy="40" r="8" stroke="#10b981" strokeWidth="1" fill="none" opacity="0.3" />
+                        <circle cx="45" cy="40" r="8" stroke="#10b981" strokeWidth="1" fill="none" opacity="0.3" />
+                        <line x1="23" y1="15" x2="37" y2="15" stroke="#10b981" strokeWidth="0.5" opacity="0.2" />
+                        <line x1="23" y1="40" x2="37" y2="40" stroke="#10b981" strokeWidth="0.5" opacity="0.2" />
+                        <line x1="30" y1="23" x2="30" y2="32" stroke="#10b981" strokeWidth="0.5" opacity="0.2" />
+                        <text x="30" y="55" textAnchor="middle" fill="#10b981" fontSize="5" opacity="0.4" fontFamily="monospace">Event-Driven</text>
+                      </svg>
+                      <span className="text-xs font-mono text-emerald-500/60">Distributed + Kafka</span>
+                    </div>
+                  </div>
+                </>
+              )}
+              {cs.id === "healthcare-data-pipeline" && (
+                <>
+                  <div className="flex-1 text-center">
+                    <div className="w-full aspect-[3/2] rounded-xl border border-red-500/20 bg-red-500/[0.03] flex flex-col items-center justify-center p-4 gap-2">
+                      <svg viewBox="0 0 60 60" className="w-10 h-10 opacity-40" fill="none">
+                        <rect x="10" y="10" width="40" height="8" rx="2" stroke="#ef4444" strokeWidth="1" opacity="0.3" fill="none" />
+                        <rect x="10" y="25" width="40" height="8" rx="2" stroke="#ef4444" strokeWidth="1" opacity="0.2" fill="none" />
+                        <rect x="10" y="40" width="40" height="8" rx="2" stroke="#ef4444" strokeWidth="1" opacity="0.1" fill="none" />
+                        <text x="30" y="55" textAnchor="middle" fill="#ef4444" fontSize="5" opacity="0.4" fontFamily="monospace">Batch Scripts</text>
+                      </svg>
+                      <span className="text-xs font-mono text-red-500/60">Manual Batch Processing</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <svg aria-hidden="true" className="w-6 h-6 text-accent/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+                    <span className="text-[10px] font-mono text-accent/40">{cs.duration}</span>
+                  </div>
+                  <div className="flex-1 text-center">
+                    <div className="w-full aspect-[3/2] rounded-xl border border-emerald-500/20 bg-emerald-500/[0.03] flex flex-col items-center justify-center p-4 gap-2">
+                      <svg viewBox="0 0 60 60" className="w-10 h-10 opacity-40" fill="none">
+                        <circle cx="15" cy="20" r="6" stroke="#10b981" strokeWidth="1" fill="none" opacity="0.3" />
+                        <rect x="25" y="16" width="24" height="8" rx="2" stroke="#10b981" strokeWidth="1" fill="none" opacity="0.3" />
+                        <rect x="25" y="32" width="24" height="8" rx="2" stroke="#10b981" strokeWidth="1" fill="none" opacity="0.3" />
+                        <circle cx="15" cy="36" r="6" stroke="#10b981" strokeWidth="1" fill="none" opacity="0.3" />
+                        <line x1="21" y1="20" x2="25" y2="20" stroke="#10b981" strokeWidth="0.5" opacity="0.2" />
+                        <line x1="49" y1="20" x2="49" y2="32" stroke="#10b981" strokeWidth="0.5" opacity="0.2" />
+                        <line x1="21" y1="36" x2="25" y2="36" stroke="#10b981" strokeWidth="0.5" opacity="0.2" />
+                        <text x="30" y="52" textAnchor="middle" fill="#10b981" fontSize="5" opacity="0.4" fontFamily="monospace">Real-Time Pipeline</text>
+                      </svg>
+                      <span className="text-xs font-mono text-emerald-500/60">Event-Driven + Kafka</span>
+                    </div>
+                  </div>
+                </>
+              )}
+              {cs.id === "fintech-api-gateway" && (
+                <>
+                  <div className="flex-1 text-center">
+                    <div className="w-full aspect-[3/2] rounded-xl border border-red-500/20 bg-red-500/[0.03] flex flex-col items-center justify-center p-4 gap-2">
+                      <svg viewBox="0 0 60 60" className="w-10 h-10 opacity-40" fill="none">
+                        <rect x="15" y="10" width="30" height="40" rx="4" stroke="#ef4444" strokeWidth="1" opacity="0.2" fill="none" />
+                        <line x1="20" y1="20" x2="40" y2="20" stroke="#ef4444" strokeWidth="1" opacity="0.15" />
+                        <line x1="20" y1="28" x2="35" y2="28" stroke="#ef4444" strokeWidth="1" opacity="0.1" />
+                        <line x1="20" y1="36" x2="30" y2="36" stroke="#ef4444" strokeWidth="1" opacity="0.08" />
+                        <text x="30" y="56" textAnchor="middle" fill="#ef4444" fontSize="5" opacity="0.4" fontFamily="monospace">Collapsed Gateway</text>
+                      </svg>
+                      <span className="text-xs font-mono text-red-500/60">Single Point of Failure</span>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-center gap-2">
+                    <svg aria-hidden="true" className="w-6 h-6 text-accent/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M13 5l7 7-7 7" /></svg>
+                    <span className="text-[10px] font-mono text-accent/40">{cs.duration}</span>
+                  </div>
+                  <div className="flex-1 text-center">
+                    <div className="w-full aspect-[3/2] rounded-xl border border-emerald-500/20 bg-emerald-500/[0.03] flex flex-col items-center justify-center p-4 gap-2">
+                      <svg viewBox="0 0 60 60" className="w-10 h-10 opacity-40" fill="none">
+                        <rect x="20" y="8" width="20" height="12" rx="3" stroke="#10b981" strokeWidth="1" fill="none" opacity="0.3" />
+                        <line x1="30" y1="20" x2="30" y2="28" stroke="#10b981" strokeWidth="0.5" opacity="0.2" />
+                        <rect x="8" y="28" width="14" height="12" rx="2" stroke="#10b981" strokeWidth="1" fill="none" opacity="0.3" />
+                        <rect x="38" y="28" width="14" height="12" rx="2" stroke="#10b981" strokeWidth="1" fill="none" opacity="0.3" />
+                        <rect x="23" y="28" width="14" height="12" rx="2" stroke="#10b981" strokeWidth="1" fill="none" opacity="0.2" />
+                        <line x1="22" y1="34" x2="23" y2="34" stroke="#10b981" strokeWidth="0.5" opacity="0.2" />
+                        <line x1="37" y1="34" x2="38" y2="34" stroke="#10b981" strokeWidth="0.5" opacity="0.2" />
+                        <text x="30" y="54" textAnchor="middle" fill="#10b981" fontSize="5" opacity="0.4" fontFamily="monospace">K8s Gateway</text>
+                      </svg>
+                      <span className="text-xs font-mono text-emerald-500/60">Auto-Scaling Gateway</span>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           </motion.div>
         </div>
