@@ -64,37 +64,6 @@ function Field({ label, name, type = "text", required = false, textarea = false 
 }
 
 export default function Contact() {
-  const [submitting, setSubmitting] = useState(false)
-  const [submitError, setSubmitError] = useState("")
-
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setSubmitting(true)
-    setSubmitError("")
-
-    const form = e.currentTarget
-    const data = new FormData(form)
-    data.append("_subject", "New inquiry from Centrosof website")
-    data.append("_captcha", "false")
-    data.append("_next", `${window.location.origin}/thank-you`)
-
-    try {
-      const res = await fetch(`https://formsubmit.co/${companyInfo.email}`, {
-        method: "POST",
-        body: data,
-      })
-      if (res.ok) {
-        window.location.href = "/thank-you"
-      } else {
-        throw new Error("Form submission failed")
-      }
-    } catch {
-      setSubmitError("Something went wrong. Please email us directly at " + companyInfo.email)
-    } finally {
-      setSubmitting(false)
-    }
-  }
-
   return (
     <>
       <PageHero
@@ -109,7 +78,8 @@ export default function Contact() {
         <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-accent/5 rounded-full blur-3xl pointer-events-none" />
         <div className="relative max-w-2xl mx-auto">
           <motion.form
-            onSubmit={handleSubmit}
+            action={`https://formsubmit.co/${companyInfo.email}`}
+            method="POST"
             initial="hidden"
             animate="visible"
             variants={{
@@ -118,6 +88,9 @@ export default function Contact() {
             }}
             className="space-y-6"
           >
+            <input type="hidden" name="_subject" value="New inquiry from Centrosof website" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="hidden" name="_next" value={`${typeof window !== "undefined" ? window.location.origin : "https://centrosof.com"}/thank-you`} />
             <motion.div variants={fadeUp} className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <Field label="Name" name="name" required />
               <Field label="Email" name="email" type="email" required />
@@ -131,31 +104,16 @@ export default function Contact() {
             <motion.div variants={fadeUp}>
               <button
                 type="submit"
-                disabled={submitting}
-                className="group relative w-full bg-accent text-white px-8 py-3.5 rounded-xl font-medium shadow-lg shadow-accent/20 transition-all duration-300 hover:bg-accent-hover hover:shadow-[0_0_32px_rgba(202,138,4,0.35)] disabled:opacity-60 disabled:cursor-not-allowed"
+                className="group relative w-full bg-accent text-white px-8 py-3.5 rounded-xl font-medium shadow-lg shadow-accent/20 transition-all duration-300 hover:bg-accent-hover hover:shadow-[0_0_32px_rgba(202,138,4,0.35)]"
               >
                 <span className="relative z-10 flex items-center justify-center gap-2">
-                  {submitting ? (
-                    <>
-                      <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Message
-                      <svg aria-hidden="true" className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                        <path d="M5 12h14M13 5l7 7-7 7" />
-                      </svg>
-                    </>
-                  )}
+                  Send Message
+                  <svg aria-hidden="true" className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <path d="M5 12h14M13 5l7 7-7 7" />
+                  </svg>
                 </span>
               </button>
             </motion.div>
-            {submitError && (
-              <motion.p variants={fadeUp} className="text-center text-sm text-red-400">
-                {submitError}
-              </motion.p>
-            )}
             <motion.p variants={fadeUp} className="text-center text-xs text-text-dim/60">
               We respond within 24 hours. No automated replies. No sales scripts. Just engineering.
             </motion.p>
