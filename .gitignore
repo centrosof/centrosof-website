@@ -47,6 +47,15 @@ Thumbs.db
 *.tsbuildinfo
 tsconfig.tsbuildinfo
 
+# --- Generated documents ---
+temp/
+yesgadgets-clone/
+real-estate-audit-leads.csv
+skills-lock.json
+
+# --- Agent skills ---
+.agents/
+
 # --- Misc ---
 *.local
 *.cert
